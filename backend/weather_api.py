@@ -4,6 +4,15 @@ from pathlib import Path
 
 import requests
 
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover
+    def load_dotenv(*args, **kwargs):
+        return False
+
+
+load_dotenv(Path(__file__).resolve().parents[1] / '.env')
+
 
 # --------------------------------
 # WEATHER API CONFIGURATION

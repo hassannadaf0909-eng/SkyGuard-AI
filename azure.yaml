@@ -1,0 +1,6 @@
+name: skyguard-ai
+services:
+  web:
+    project: .
+    host: appservice
+    language: python

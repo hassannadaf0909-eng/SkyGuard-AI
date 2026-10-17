@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    container_name: skyguard-ai-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY:-}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: skyguard-ai-frontend
+    ports:
+      - "8001:8001"
+    depends_on:
+      - backend
+    restart: unless-stopped

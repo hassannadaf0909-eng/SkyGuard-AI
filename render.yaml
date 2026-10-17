@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: skyguard-ai
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: OPENWEATHER_API_KEY
+        sync: false
